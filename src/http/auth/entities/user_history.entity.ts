@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   Unique,
   ManyToOne,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { User } from './user.entity';
 
@@ -21,10 +23,14 @@ export class UserHistory {
   @Column()
   refreshToken?: string;
 
-  @Column()
+  @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt?: string;
 
-  @Column()
+  @UpdateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+  })
   updateAt?: string;
 
   @ManyToOne(() => User, (user) => user.id)

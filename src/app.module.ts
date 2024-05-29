@@ -14,6 +14,10 @@ import {
 import { AuthModule } from './http/auth/auth.module';
 import { User } from './http/auth/entities/user.entity';
 import * as path from 'path';
+import { JwtModule } from '@nestjs/jwt';
+import { AuthService } from './http/auth/auth.service';
+import { Repository } from 'typeorm';
+import { UserHistory } from './http/auth/entities/user_history.entity';
 
 @Module({
   imports: [
@@ -31,7 +35,7 @@ import * as path from 'path';
         port: configService.get<number>('TYPEORM_PORT'),
         password: configService.get<string>('TYPEORM_PASSWORD'),
         username: configService.get<string>('TYPEORM_USERNAME'),
-        entities: [User],
+        entities: [User, UserHistory],
         database: configService.get<string>('TYPEORM_DATABASE'),
         synchronize: configService.get<boolean>('TYPEORM_SYNCHRONIZE'),
         logging: true,

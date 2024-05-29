@@ -22,4 +22,8 @@ export default Joi.object({
   TYPEORM_ENTITIES: Joi.string(),
   TYPEORM_SYNCHRONIZE: Joi.string(),
   TYPEORM_LOGGING: Joi.boolean(),
+  JWT_EXPIRES: Joi.string(),
+  JWT_SECRET: Joi.string(),
+  JWT_REFRESH_EXPIRES: Joi.string(),
+  JWT_REFRESH_SECRET: Joi.string(),
 });

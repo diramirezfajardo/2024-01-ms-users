@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   CreateDateColumn,
 } from 'typeorm';
+import { userTypesEnum } from '../enums/userTypes.enum';
 
 @Entity()
 export class User {
@@ -26,6 +27,9 @@ export class User {
 
   @Column()
   birthdate?: string;
+
+  @Column({ default: userTypesEnum.Normal })
+  userType?: number;
 
   @Column({ default: true })
   active?: boolean;
