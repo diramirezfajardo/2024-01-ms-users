@@ -29,5 +29,11 @@ export default registerAs('baseConfig', () => {
       migrations_dir: process.env.TYPEORM_MIGRATIONS_DIR,
       logging: process.env.TYPEORM_LOGGING,
     },
+    jwt: {
+      secret: process.env.JWT_SECRET,
+      expires: process.env.JWT_EXPIRES,
+      refreshSecret: process.env.JWT_REFRESH_SECRET,
+      refreshExpires: process.env.JWT_REFRESH_EXPIRES,
+    },
   };
 });
